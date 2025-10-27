@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drug Finder — Modern UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <div class="logo">DrugFinder</div>
+    <div class="country-select">
+      <label for="country">Country</label>
+      <select id="country">
+        <option value="">—</option>
+        {% for country in countries %}
+          <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </header>
+  <main class="container">
+    <section class="search-area">
+      <div class="quote">“Medicine is the art of healing — find your cure here.”</div>
+      <input id="searchBox" type="search" placeholder="Search for a drug..." autocomplete="off" />
+      <button id="searchBtn" onclick="searchDrugs()">Search</button>
+      <ul id="suggestionList"></ul>
+    </section>
+    <section class="detail" id="detailPane">
+      <h2 id="detailTitle">Select a drug to view details</h2>
+      <div class="props" id="props"></div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 DrugFinder. Designed with ❤️ for academic use.</p>
+  </footer>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
